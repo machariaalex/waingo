@@ -217,7 +217,7 @@ export default async function HomePage() {
               <p className="font-sans text-ink-light text-sm">Farming tips, seasonal advice, and stories from Waingo Farm.</p>
             </div>
             <a
-              href="https://www.tiktok.com/@waingofarm"
+              href="https://www.tiktok.com/@waingofarmagrovet"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-1.5 font-sans text-sm font-medium text-ink-mid hover:text-forest transition-colors"
@@ -281,7 +281,7 @@ export default async function HomePage() {
               </div>
             </div>
             <a
-              href="https://www.tiktok.com/@waingofarm"
+              href="https://www.tiktok.com/@waingofarmagrovet"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-ink font-sans font-semibold text-sm px-5 py-2.5 rounded hover:bg-parchment transition-colors"

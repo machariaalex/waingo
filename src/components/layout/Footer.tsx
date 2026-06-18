@@ -67,7 +67,7 @@ export default function Footer() {
               Serving farmers and livestock keepers along Mombasa Road. Animal health products, feeds, seeds, and farm tools — in one place.
             </p>
             <a
-              href="https://www.tiktok.com/@waingofarm"
+              href="https://www.tiktok.com/@waingofarmagrovet"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white/50 hover:text-harvest transition-colors text-sm font-sans"
