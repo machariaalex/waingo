@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String
+  slug        String      @unique
+  description String?
+  category    String
+  price       Float
+  stock       Int         @default(0)
+  minStock    Int         @default(5)
+  unit        String      @default("piece")
+  imageUrl    String?
+  featured    Boolean     @default(false)
+  active      Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id           Int         @id @default(autoincrement())
+  customerName String
+  phone        String
+  email        String?
+  type         String      // "pickup" | "delivery"
+  address      String?
+  status       String      @default("pending")
+  total        Float
+  mpesaRef     String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  items        OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int
+  productId Int
+  quantity  Int
+  price     Float
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  type      String   // "vet" | "tour" | "bulk"
+  date      String
+  notes     String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}
+
+model AdminUser {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}

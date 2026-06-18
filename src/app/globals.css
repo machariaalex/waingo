@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-ink leading-relaxed;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h4, h5, h6 {
+    @apply font-sans font-semibold;
+  }
+
+  /* Smooth focus rings */
+  *:focus-visible {
+    @apply outline-2 outline-forest outline-offset-2 rounded;
+  }
+}
+
+@layer components {
+  /* Section divider rule */
+  .section-rule {
+    @apply border-t border-rule;
+  }
+
+  /* Ledger row — admin carry-forward */
+  .ledger-row {
+    @apply border-b border-charcoal-ink/10 py-3 flex justify-between items-center;
+  }
+
+  /* Admin stamp — carry-forward */
+  .stamp {
+    @apply font-mono text-xs border-2 px-2 py-0.5 uppercase tracking-widest font-bold rotate-[-2deg] inline-block;
+  }
+
+  /* Legacy ear-tag — admin carry-forward */
+  .ear-tag {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-r-full rounded-bl-full font-sans font-bold text-xs uppercase tracking-wider;
+    clip-path: polygon(8px 0%, 100% 0%, 100% 100%, 8px 100%, 0% 50%);
+    padding-left: 16px;
+  }
+
+  /* Legacy perforation — admin carry-forward */
+  .perforation {
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 6px,
+      #2A2118 6px,
+      #2A2118 10px
+    );
+    height: 1px;
+    opacity: 0.3;
+  }
+
+  /* Price tag */
+  .price-tag {
+    @apply font-mono font-semibold;
+  }
+
+  /* Product image placeholder — gradient by category */
+  .img-placeholder-health {
+    background: linear-gradient(135deg, #6B3B1A 0%, #8C5230 60%, #A86840 100%);
+  }
+  .img-placeholder-feeds {
+    background: linear-gradient(135deg, #8C6A10 0%, #C8881A 60%, #DFA030 100%);
+  }
+  .img-placeholder-seeds {
+    background: linear-gradient(135deg, #2C4A1E 0%, #3D6929 60%, #567A3A 100%);
+  }
+  .img-placeholder-tools {
+    background: linear-gradient(135deg, #4A4030 0%, #7A6A54 60%, #A89880 100%);
+  }
+
+  /* Category cards */
+  .category-card-health {
+    background: linear-gradient(160deg, #6B3B1A 0%, #8C4A28 50%, #A86040 100%);
+  }
+  .category-card-feeds {
+    background: linear-gradient(160deg, #7A5A10 0%, #A87818 50%, #C8951A 100%);
+  }
+  .category-card-seeds {
+    background: linear-gradient(160deg, #1E3A14 0%, #2C5020 50%, #3D6929 100%);
+  }
+  .category-card-tools {
+    background: linear-gradient(160deg, #302820 0%, #4A3C2C 50%, #6A5840 100%);
+  }
+}
+
+@layer utilities {
+  /* Prose balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Clamp lines */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F5F0E8; }
+::-webkit-scrollbar-thumb { background: #8C5230; border-radius: 3px; }
+
+/* Smooth image loading */
+img { transition: opacity 0.2s; }
+img[data-loading] { opacity: 0; }
